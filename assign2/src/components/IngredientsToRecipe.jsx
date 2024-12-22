@@ -73,7 +73,11 @@ const IngredientsToRecipe = () => {
               {recipe.details && (
                 <>
                   <h4>Instructions:</h4>
-                  <p>{recipe.details.instructions || 'Instructions not available.'}</p>
+                  <p>
+                 {recipe.details.instructions
+                  ? recipe.details.instructions.replace(/<\/?[^>]+(>|$)/g, '')
+                  : 'Instructions not available.'}
+                  </p>
                 </>
               )}
             </div>
